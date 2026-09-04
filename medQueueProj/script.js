@@ -3,10 +3,24 @@ function goTo(name) {
   document.querySelectorAll('.screen').forEach(function(s) {
     s.classList.remove('active');
   });
-  document.getElementById('screen-' + name).classList.add('active');
-  window.scrollTo(0, 0);
+  var targetScreen = document.getElementById('screen-' + name);
+  if (targetScreen) {
+    targetScreen.classList.add('active');
+    window.scrollTo(0, 0);
+  }
   renderAllSteppers();
 }
+
+/* Accessibility Keyboard Listener */
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' || e.key === ' ') {
+    var activeEl = document.activeElement;
+    if (activeEl && (activeEl.getAttribute('role') === 'button' || activeEl.getAttribute('role') === 'radio')) {
+      e.preventDefault();
+      activeEl.click();
+    }
+  }
+});
 
 /* Footer Dynamic Date */
 var todayStr = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
@@ -17,7 +31,7 @@ var todayStr = new Date().toLocaleDateString('en-US', { month: 'long', day: 'num
   }
 });
 
-/* Dynamic Stepper Rendering (3 Steps for Regular, 4 Steps for Priority) */
+/* Dynamic Stepper Rendering */
 function currentIsRegular() {
   return !!(selectedClass && selectedClass.priority === false);
 }
@@ -49,7 +63,7 @@ function renderAllSteppers() {
   document.querySelectorAll('.stepper-mount').forEach(renderStepper);
 }
 
-/* Home & Queue Status Lists */
+/* Queue List Items (Flat Row Renderer) */
 var homeQueue = [
   { n: '02' }, { n: '03' }, { n: '04' }, { n: '05' }, { n: '06' }, { n: '07' }, { n: '08' }
 ];
@@ -68,21 +82,22 @@ if (statusQueueEl) {
   }).join('');
 }
 
-/* Screen 2: Service Selection */
+/* Screen 2: Service Selection (Linking to assets/icons/*.svg) */
 var services = [
-  { id: 'cardiology', name: 'Cardiology', meta: '~8 min', icon: '♥' },
-  { id: 'neurology', name: 'Neurology', meta: '~22 min', icon: '⚡' },
-  { id: 'dermatology', name: 'Dermatology', meta: '~15 min', icon: '✦' },
-  { id: 'pediatrics', name: 'Pediatrics', meta: '~10 min', icon: '☺' },
-  { id: 'orthopedics', name: 'Orthopedics', meta: '~30 min', icon: '✚' },
-  { id: 'general', name: 'General Medicine', meta: '~18 min', icon: '⚕' }
+  { id: 'cardiology', name: 'Cardiology', meta: '~8 min', icon: 'assets/icons/heart.svg' },
+  { id: 'neurology', name: 'Neurology', meta: '~22 min', icon: 'assets/icons/zap.svg' },
+  { id: 'dermatology', name: 'Dermatology', meta: '~15 min', icon: 'assets/icons/sparkles.svg' },
+  { id: 'pediatrics', name: 'Pediatrics', meta: '~10 min', icon: 'assets/icons/smile.svg' },
+  { id: 'orthopedics', name: 'Orthopedics', meta: '~30 min', icon: 'assets/icons/plus.svg' },
+  { id: 'general', name: 'General Medicine', meta: '~18 min', icon: 'assets/icons/stethoscope.svg' }
 ];
+
 var selectedService = null;
 var grid = document.getElementById('service-grid');
 if (grid) {
   grid.innerHTML = services.map(function(s) {
-    return '<div class="option-card" data-id="' + s.id + '" onclick="selectService(\'' + s.id + '\')">' +
-      '<div class="icon">' + s.icon + '</div>' +
+    return '<div class="option-card" role="radio" aria-checked="false" tabindex="0" data-id="' + s.id + '" onclick="selectService(\'' + s.id + '\')">' +
+      '<div class="icon" aria-hidden="true"><img src="' + s.icon + '" alt="" width="24" height="24"></div>' +
       '<div class="name">' + s.name + '</div>' +
       '<div class="meta">' + s.meta + '</div></div>';
   }).join('');
@@ -91,7 +106,9 @@ if (grid) {
 function selectService(id) {
   selectedService = services.find(function(s) { return s.id === id; });
   document.querySelectorAll('#service-grid .option-card').forEach(function(c) {
-    c.classList.toggle('selected', c.dataset.id === id);
+    var isMatch = (c.dataset.id === id);
+    c.classList.toggle('selected', isMatch);
+    c.setAttribute('aria-checked', isMatch ? 'true' : 'false');
   });
   document.getElementById('service-continue').disabled = false;
 }
@@ -107,17 +124,19 @@ var selectedClass = null;
 var classListEl = document.getElementById('classification-list');
 if (classListEl) {
   classListEl.innerHTML = classifications.map(function(c) {
-    return '<div class="radio-card" data-id="' + c.id + '" onclick="selectClass(\'' + c.id + '\')">' +
+    return '<div class="radio-card" role="radio" aria-checked="false" tabindex="0" data-id="' + c.id + '" onclick="selectClass(\'' + c.id + '\')">' +
       '<div><div class="name">' + c.name + '</div>' +
       '<span class="pill ' + (c.priority ? 'pill-priority">Priority Lane' : 'pill-waiting">Regular Lane') + '</span></div>' +
-      '<div class="radio-dot"></div></div>';
+      '<div class="radio-dot" aria-hidden="true"></div></div>';
   }).join('');
 }
 
 function selectClass(id) {
   selectedClass = classifications.find(function(c) { return c.id === id; });
   document.querySelectorAll('#classification-list .radio-card').forEach(function(c) {
-    c.classList.toggle('selected', c.dataset.id === id);
+    var isMatch = (c.dataset.id === id);
+    c.classList.toggle('selected', isMatch);
+    c.setAttribute('aria-checked', isMatch ? 'true' : 'false');
   });
   document.getElementById('classification-continue').disabled = false;
   renderAllSteppers();
@@ -184,12 +203,12 @@ var doctorGridEl = document.getElementById('doctor-grid');
 if (doctorGridEl) {
   doctorGridEl.innerHTML = doctors.map(function(d) {
     return '<div class="doctor-card">' +
-      '<div class="avatar">' + initials(d.name) + '</div>' +
+      '<div class="avatar" aria-hidden="true">' + initials(d.name) + '</div>' +
       '<div class="name">' + d.name + '</div>' +
       '<div class="spec">' + d.spec + '</div>' +
       '<span class="pill pill-ondone">On Duty</span></div>';
   }).join('');
 }
 
-/* Initial Stepper Pass */
+/* Initial Pass */
 renderAllSteppers();
