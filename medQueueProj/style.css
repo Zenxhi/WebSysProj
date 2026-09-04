@@ -1,10 +1,10 @@
 :root {
   /* Canvas & Backgrounds */
-  --app-bg: #ebf2f5;             /* Unified soft cool gray-teal canvas */
+  --app-bg: #EBF2F5;             /* Soft cool gray-teal canvas */
   
   /* Cards & Surfaces */
-  --card-bg: #FFFFFF;             /* Pure white for functional containers */
-  --card-border: #C2D8DE;         /* Soft slate boundaries */
+  --card-bg: #FFFFFF;             /* Pure white floating containers */
+  --card-border: #C2D8DE;         /* Defined slate borders */
   --card-shadow: 0 4px 16px rgba(7, 29, 39, 0.06);
   --card-selected-bg: #EAF7F6;
   
@@ -14,9 +14,9 @@
   --text-inverse: #FFFFFF;        /* Pure white for dark buttons/headers */
   
   /* Brand & Status Colors */
-  --accent-teal: #0E6878;         /* Primary deep teal */
+  --accent-teal: #0E6878;         /* Primary brand dark teal */
   --accent-bright: #00A396;       /* High-contrast cyan highlight */
-  --cta-bg: #0E6878;              /* Hero background for primary CTA */
+  --cta-bg: #0E6878;              /* Hero background for Get in Line CTA */
   --cta-hover: #095260;
   --priority-orange: #B85C00;     
   --priority-bg: #FFF4E8;
@@ -39,16 +39,17 @@ html, body {
 }
 
 body {
-  background: #ebf2f5;
+  background: #071D27;
   color: var(--text-main);
   min-height: 100dvh;
   display: flex;
   justify-content: center;
 }
 
+/* Fluid Responsive Parent Wrapper */
 .app {
   width: 100%;
-  max-width: 440px;
+  max-width: 100%;
   min-height: 100dvh;
   position: relative;
   overflow: hidden;
@@ -58,6 +59,8 @@ body {
 .screen {
   display: none;
   min-height: 100dvh;
+  max-width: 680px;               /* Centered readable container on large viewports */
+  margin: 0 auto;
   padding: 20px 20px 28px;
   flex-direction: column;
   animation: fadeSlide .28s cubic-bezier(0.16, 1, 0.3, 1);
@@ -76,7 +79,7 @@ body {
   flex: 1;
 }
 
-/* Header Bar (Screens 2–7) */
+/* Top Header Bar */
 .brand-header {
   display: flex;
   align-items: center;
@@ -330,7 +333,7 @@ p.subtitle {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Primary Action CTA (Get Queue Focal Point) */
+/* Primary Hero Action CTA */
 .action-card {
   width: 100%;
   min-height: 80px;
@@ -378,7 +381,13 @@ p.subtitle {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
-/* De-emphasized Stats Elements */
+.action-card .arrow-circle img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* Secondary Stat Cards */
 .stats-row {
   display: flex;
   gap: 14px;
@@ -442,6 +451,7 @@ p.subtitle {
   font-weight: 700;
 }
 
+/* Clean Separator Rows for Queue Items */
 .ticket-row {
   display: flex;
   justify-content: space-between;
@@ -505,10 +515,12 @@ p.subtitle {
   min-height: 104px;
 }
 
-.option-card .icon {
-  font-size: 24px;
+.option-card .icon img {
+  width: 24px;
+  height: 24px;
+  display: block;
+  object-fit: contain;
   margin-bottom: 10px;
-  color: var(--accent-teal);
 }
 
 .option-card .name {
@@ -789,4 +801,57 @@ p.subtitle {
   color: var(--text-sub);
   font-weight: 700;
   margin-bottom: 12px;
+}
+
+/* ==========================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================== */
+
+/* Tablet Viewports (600px and up) */
+@media (min-width: 600px) {
+  .screen {
+    padding: 32px 28px;
+  }
+
+  h1.title {
+    font-size: 32px;
+  }
+
+  p.subtitle {
+    font-size: 16.5px;
+    margin-bottom: 28px;
+  }
+
+  .option-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .doctor-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .action-card {
+    padding: 22px 28px;
+  }
+
+  .ticket-card {
+    padding: 32px;
+  }
+}
+
+/* Desktop Viewports (900px and up) */
+@media (min-width: 900px) {
+  .screen {
+    max-width: 860px;
+  }
+
+  .option-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .doctor-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
