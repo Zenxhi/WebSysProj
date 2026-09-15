@@ -5,192 +5,237 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MediQueue</title>
   <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon1.svg">
+
 </head>
 <body>
 <main class="app">
 
+  <!-- Full-Viewport Floating Background Icons -->
+  <div class="home-bg-decor" aria-hidden="true">
+    <div class="bg-icon-item" style="top: 5%; left: 6%; width: 68px; height: 68px; opacity: 0.16; transform: rotate(-18deg); animation: floatA 10s ease-in-out infinite;">
+      <img src="../assets/icons/stethoscope.svg" alt="" width="100%" height="100%">
+    </div>
+    <div class="bg-icon-item" style="top: 3%; right: 8%; width: 72px; height: 72px; opacity: 0.15; transform: rotate(12deg); animation: floatB 10s ease-in-out 1.2s infinite;">
+      <img src="../assets/icons/brain (1).svg" alt="" width="100%" height="100%">
+    </div>
+    <div class="bg-icon-item" style="top: 19%; right: 5%; width: 60px; height: 60px; opacity: 0.15; transform: rotate(15deg); animation: floatC 10s ease-in-out 0.9s infinite;">
+      <img src="../assets/icons/baby.svg" alt="" width="100%" height="100%">
+    </div>
+    <div class="bg-icon-item" style="bottom: 22%; left: 6%; width: 68px; height: 68px; opacity: 0.15; transform: rotate(-30deg); animation: floatC 10s ease-in-out 2s infinite;">
+      <img src="../assets/icons/bone.svg" alt="" width="100%" height="100%">
+    </div>
+    <div class="bg-icon-item" style="bottom: 12%; left: 40%; width: 64px; height: 64px; opacity: 0.15; transform: rotate(5deg); animation: floatB 10s ease-in-out 1s infinite;">
+      <img src="../assets/icons/heart (1).svg" alt="" width="100%" height="100%">
+    </div>
+    <div class="bg-icon-item" style="bottom: 16%; right: 7%; width: 76px; height: 76px; opacity: 0.16; transform: rotate(10deg); animation: floatA 10s ease-in-out 0.6s infinite;">
+      <img src="../assets/icons/heart (1).svg" alt="" width="100%" height="100%">
+    </div>
+    <div class="bg-icon-item" style="bottom: 5%; right: 18%; width: 64px; height: 64px; opacity: 0.14; transform: rotate(-14deg); animation: floatB 10s ease-in-out 3.3s infinite;">
+      <img src="../assets/icons/brain (1).svg" alt="" width="100%" height="100%">
+    </div>
+  </div>
+
   <!-- ============ SCREEN 1: HOME ============ -->
   <section class="screen active" id="screen-home" aria-label="Home Screen">
-    <div class="logo-row">
-      <div class="heart-mark" aria-hidden="true">
-        <svg viewBox="0 0 58 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path class="heart-stroke" d="M54.7493 20.0992C55.1358 18.8504 55.3325 17.5538 55.3333 16.2501C55.3475 13.369 54.4556 10.5521 52.7763 8.17431C51.097 5.79648 48.71 3.9705 45.933 2.9394C43.156 1.90829 40.1207 1.72097 37.231 2.40237C34.3414 3.08376 31.7345 4.60156 29.7573 6.75373C29.6176 6.89843 29.4487 7.01379 29.2611 7.09266C29.0735 7.17153 28.8712 7.21223 28.6667 7.21223C28.4622 7.21223 28.2598 7.17153 28.0722 7.09266C27.8846 7.01379 27.7157 6.89843 27.576 6.75373C25.5926 4.61545 22.9863 3.11031 20.1014 2.43709C17.2164 1.76388 14.1885 1.95426 11.4176 2.98309C8.64671 4.01193 6.26313 5.83082 4.58169 8.19953C2.90025 10.5682 2.00005 13.3753 2 16.2501C2 22.1917 6 26.5834 10 30.4584L24.688 44.2327C25.1921 44.7794 25.8105 45.216 26.5021 45.5134C27.1937 45.8107 27.9428 45.9621 28.6994 45.9575C29.4561 45.9528 30.2031 45.7923 30.8908 45.4864C31.5785 45.1806 32.1911 44.7365 32.688 44.1836L55.3333 44.2327"
-            stroke="#0E6878" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+    <div class="home-card">
+      <div class="logo-row">
+        <div class="heart-mark" aria-hidden="true">
+          <svg viewBox="0 0 58 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="heart-stroke" d="M54.7493 20.0992C55.1358 18.8504 55.3325 17.5538 55.3333 16.2501C55.3475 13.369 54.4556 10.5521 52.7763 8.17431C51.097 5.79648 48.71 3.9705 45.933 2.9394C43.156 1.90829 40.1207 1.72097 37.231 2.40237C34.3414 3.08376 31.7345 4.60156 29.7573 6.75373C29.6176 6.89843 29.4487 7.01379 29.2611 7.09266C29.0735 7.17153 28.8712 7.21223 28.6667 7.21223C28.4622 7.21223 28.2598 7.17153 28.0722 7.09266C27.8846 7.01379 27.7157 6.89843 27.576 6.75373C25.5926 4.61545 22.9863 3.11031 20.1014 2.43709C17.2164 1.76388 14.1885 1.95426 11.4176 2.98309C8.64671 4.01193 6.26313 5.83082 4.58169 8.19953C2.90025 10.5682 2.00005 13.3753 2 16.2501C2 22.1917 6 26.5834 10 30.4584L24.688 44.2327C25.1921 44.7794 25.8105 45.216 26.5021 45.5134C27.1937 45.8107 27.9428 45.9621 28.6994 45.9575C29.4561 45.9528 30.2031 45.7923 30.8908 45.4864C31.5785 45.1806 32.1911 44.7365 32.688 44.1836L55.3333 44.2327"
+              stroke="#001F3F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h1 class="wordmark-text">Medi<span>Queue</span></h1>
       </div>
-      <h1 class="wordmark-text">Medi<span>Queue</span></h1>
+
+      <p class="home-eyebrow" id="home-eyebrow">Welcome to MediQueue</p>
+
+      <div class="action-card" role="button" tabindex="0" onclick="goTo('service')" aria-label="Get a Queue Ticket">
+        <div>
+          <div class="label">GET IN LINE</div>
+          <div class="headline">Get a Queue Ticket</div>
+        </div>
+        <div class="arrow-circle" aria-hidden="true">
+          <img src="../assets/icons/move-right.svg" alt="" width="20" height="20">
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="label">IN QUEUE</div>
+          <div class="value">7</div>
+          <div class="sub">patients waiting</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">AVG WAIT</div>
+          <div class="value">18<small>m</small></div>
+          <div class="sub">per patient</div>
+        </div>
+      </div>
+
+      <div class="queue-head">
+        <h3>Queue Ahead</h3>
+        <span>7 waiting</span>
+      </div>
+
+      <div class="home-queue-grid">
+        <div class="ticket-row"><span>02</span><span class="pill pill-waiting">Waiting</span></div>
+        <div class="ticket-row"><span>03</span><span class="pill pill-waiting">Waiting</span></div>
+        <div class="ticket-row"><span>04</span><span class="pill pill-waiting">Waiting</span></div>
+        <div class="ticket-row"><span>05</span><span class="pill pill-waiting">Waiting</span></div>
+        <div class="ticket-row"><span>06</span><span class="pill pill-waiting">Waiting</span></div>
+        <div class="ticket-row"><span>07</span><span class="pill pill-waiting">Waiting</span></div>
+      </div>
     </div>
-
-    <p class="home-eyebrow" id="home-eyebrow">Welcome to MediQueue</p>
-
-    <!-- Focal Point Action Button -->
-    <div class="action-card" role="button" tabindex="0" onclick="goTo('service')" aria-label="Get a Queue Ticket">
-      <div>
-        <div class="label">GET IN LINE</div>
-        <div class="headline">Get a Queue Ticket</div>
-      </div>
-      <div class="arrow-circle" aria-hidden="true">
-        <img src="assets/icons/angle-right.svg" alt="" width="20" height="20">
-      </div>
-    </div>
-
-    <div class="stats-row">
-      <div class="stat-card">
-        <div class="label">IN QUEUE</div>
-        <div class="value">7</div>
-        <div class="sub">patients waiting</div>
-      </div>
-      <div class="stat-card">
-        <div class="label">AVG WAIT</div>
-        <div class="value">18<small>m</small></div>
-        <div class="sub">per patient</div>
-      </div>
-    </div>
-
-    <div class="queue-head"><h3>Queue Ahead</h3><span>7 waiting</span></div>
-    <div id="home-queue-list" style="width:100%;"></div>
   </section>
 
   <!-- ============ SCREEN 2: SERVICE SELECTION ============ -->
   <section class="screen" id="screen-service" aria-label="Service Selection Screen">
     <div class="screen-body">
-      <div class="brand-header">
-        <svg class="heart-icon" viewBox="0 0 58 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M54.7493 20.0992C55.1358 18.8504 55.3325 17.5538 55.3333 16.2501C55.3475 13.369 54.4556 10.5521 52.7763 8.17431C51.097 5.79648 48.71 3.9705 45.933 2.9394C43.156 1.90829 40.1207 1.72097 37.231 2.40237C34.3414 3.08376 31.7345 4.60156 29.7573 6.75373C29.6176 6.89843 29.4487 7.01379 29.2611 7.09266C29.0735 7.17153 28.8712 7.21223 28.6667 7.21223C28.4622 7.21223 28.2598 7.17153 28.0722 7.09266C27.8846 7.01379 27.7157 6.89843 27.576 6.75373C25.5926 4.61545 22.9863 3.11031 20.1014 2.43709C17.2164 1.76388 14.1885 1.95426 11.4176 2.98309C8.64671 4.01193 6.26313 5.83082 4.58169 8.19953C2.90025 10.5682 2.00005 13.3753 2 16.2501C2 22.1917 6 26.5834 10 30.4584L24.688 44.2327C25.1921 44.7794 25.8105 45.216 26.5021 45.5134C27.1937 45.8107 27.9428 45.9621 28.6994 45.9575C29.4561 45.9528 30.2031 45.7923 30.8908 45.4864C31.5785 45.1806 32.1911 44.7365 32.688 44.1836L55.3333 44.2327" stroke="#6FD6D0" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span class="brand-title">Medi<span>Queue</span></span>
-      </div>
-
-      <button class="back-link" onclick="goTo('home')">‹ Back</button>
+      <button class="back-link" onclick="goTo('home')">
+        <svg class="back-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        <span>Back</span>
+      </button>
       <div class="stepper-mount" data-step="service"></div>
       <h1 class="title">Which service do you need?</h1>
       <p class="subtitle">Select one service to receive a queue ticket.</p>
       <div class="option-grid" id="service-grid" role="radiogroup" aria-label="Medical Services"></div>
       <button class="btn-primary" id="service-continue" disabled onclick="goTo('classification')">Continue</button>
+      <div class="clinic-footer" id="footer-2"></div>
     </div>
-    <div class="clinic-footer" id="footer-2"></div>
   </section>
 
   <!-- ============ SCREEN 3: CLASSIFICATION ============ -->
   <section class="screen" id="screen-classification" aria-label="Patient Type Screen">
     <div class="screen-body">
-      <div class="brand-header">
-        <svg class="heart-icon" viewBox="0 0 58 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M54.7493 20.0992C55.1358 18.8504 55.3325 17.5538 55.3333 16.2501C55.3475 13.369 54.4556 10.5521 52.7763 8.17431C51.097 5.79648 48.71 3.9705 45.933 2.9394C43.156 1.90829 40.1207 1.72097 37.231 2.40237C34.3414 3.08376 31.7345 4.60156 29.7573 6.75373C29.6176 6.89843 29.4487 7.01379 29.2611 7.09266C29.0735 7.17153 28.8712 7.21223 28.6667 7.21223C28.4622 7.21223 28.2598 7.17153 28.0722 7.09266C27.8846 7.01379 27.7157 6.89843 27.576 6.75373C25.5926 4.61545 22.9863 3.11031 20.1014 2.43709C17.2164 1.76388 14.1885 1.95426 11.4176 2.98309C8.64671 4.01193 6.26313 5.83082 4.58169 8.19953C2.90025 10.5682 2.00005 13.3753 2 16.2501C2 22.1917 6 26.5834 10 30.4584L24.688 44.2327C25.1921 44.7794 25.8105 45.216 26.5021 45.5134C27.1937 45.8107 27.9428 45.9621 28.6994 45.9575C29.4561 45.9528 30.2031 45.7923 30.8908 45.4864C31.5785 45.1806 32.1911 44.7365 32.688 44.1836L55.3333 44.2327" stroke="#6FD6D0" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span class="brand-title">Medi<span>Queue</span></span>
-      </div>
-
-      <button class="back-link" onclick="goTo('service')">‹ Back</button>
+      <button class="back-link" onclick="goTo('service')">
+        <svg class="back-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        <span>Back</span>
+      </button>
       <div class="stepper-mount" data-step="type"></div>
       <h1 class="title">How would you classify yourself?</h1>
       <p class="subtitle">Priority patients are served first.</p>
       <div id="classification-list" role="radiogroup" aria-label="Patient Classifications"></div>
       <button class="btn-primary" id="classification-continue" disabled onclick="classificationContinue()">Continue</button>
+      <div class="clinic-footer" id="footer-3"></div>
     </div>
-    <div class="clinic-footer" id="footer-3"></div>
   </section>
 
   <!-- ============ SCREEN 4: VERIFICATION ============ -->
   <section class="screen" id="screen-verify" aria-label="Verification Screen">
     <div class="screen-body">
-      <div class="brand-header">
-        <svg class="heart-icon" viewBox="0 0 58 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M54.7493 20.0992C55.1358 18.8504 55.3325 17.5538 55.3333 16.2501C55.3475 13.369 54.4556 10.5521 52.7763 8.17431C51.097 5.79648 48.71 3.9705 45.933 2.9394C43.156 1.90829 40.1207 1.72097 37.231 2.40237C34.3414 3.08376 31.7345 4.60156 29.7573 6.75373C29.6176 6.89843 29.4487 7.01379 29.2611 7.09266C29.0735 7.17153 28.8712 7.21223 28.6667 7.21223C28.4622 7.21223 28.2598 7.17153 28.0722 7.09266C27.8846 7.01379 27.7157 6.89843 27.576 6.75373C25.5926 4.61545 22.9863 3.11031 20.1014 2.43709C17.2164 1.76388 14.1885 1.95426 11.4176 2.98309C8.64671 4.01193 6.26313 5.83082 4.58169 8.19953C2.90025 10.5682 2.00005 13.3753 2 16.2501C2 22.1917 6 26.5834 10 30.4584L24.688 44.2327C25.1921 44.7794 25.8105 45.216 26.5021 45.5134C27.1937 45.8107 27.9428 45.9621 28.6994 45.9575C29.4561 45.9528 30.2031 45.7923 30.8908 45.4864C31.5785 45.1806 32.1911 44.7365 32.688 44.1836L55.3333 44.2327" stroke="#6FD6D0" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span class="brand-title">Medi<span>Queue</span></span>
-      </div>
-
-      <button class="back-link" onclick="goTo('classification')">‹ Back</button>
+      <button class="back-link" onclick="goTo('classification')">
+        <svg class="back-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        <span>Back</span>
+      </button>
       <div class="stepper-mount" data-step="verify"></div>
       <h1 class="title">Verify Priority Access</h1>
       <p class="subtitle">Scan your Priority ID or QR code to verify priority lane access. No personal data will be stored.</p>
       <div class="scanner-box" aria-hidden="true">
         <div class="corner tl"></div><div class="corner tr"></div>
         <div class="corner bl"></div><div class="corner br"></div>
-        <div class="center-icon">▦</div>
       </div>
       <div class="scan-status" id="scan-status" aria-live="polite"></div>
       <button class="btn-primary" onclick="simulateScan()">Simulate Scan</button>
       <button class="btn-secondary" onclick="goTo('review')">Proceed as Regular Patient</button>
+      <div class="clinic-footer" id="footer-4"></div>
     </div>
-    <div class="clinic-footer" id="footer-4"></div>
   </section>
 
   <!-- ============ SCREEN 5: REVIEW TICKET ============ -->
   <section class="screen" id="screen-review" aria-label="Ticket Review Screen">
     <div class="screen-body">
-      <div class="brand-header">
-        <svg class="heart-icon" viewBox="0 0 58 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M54.7493 20.0992C55.1358 18.8504 55.3325 17.5538 55.3333 16.2501C55.3475 13.369 54.4556 10.5521 52.7763 8.17431C51.097 5.79648 48.71 3.9705 45.933 2.9394C43.156 1.90829 40.1207 1.72097 37.231 2.40237C34.3414 3.08376 31.7345 4.60156 29.7573 6.75373C29.6176 6.89843 29.4487 7.01379 29.2611 7.09266C29.0735 7.17153 28.8712 7.21223 28.6667 7.21223C28.4622 7.21223 28.2598 7.17153 28.0722 7.09266C27.8846 7.01379 27.7157 6.89843 27.576 6.75373C25.5926 4.61545 22.9863 3.11031 20.1014 2.43709C17.2164 1.76388 14.1885 1.95426 11.4176 2.98309C8.64671 4.01193 6.26313 5.83082 4.58169 8.19953C2.90025 10.5682 2.00005 13.3753 2 16.2501C2 22.1917 6 26.5834 10 30.4584L24.688 44.2327C25.1921 44.7794 25.8105 45.216 26.5021 45.5134C27.1937 45.8107 27.9428 45.9621 28.6994 45.9575C29.4561 45.9528 30.2031 45.7923 30.8908 45.4864C31.5785 45.1806 32.1911 44.7365 32.688 44.1836L55.3333 44.2327" stroke="#6FD6D0" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span class="brand-title">Medi<span>Queue</span></span>
-      </div>
-
-      <button class="back-link" id="review-back" onclick="goBackFromReview()">‹ Back</button>
+      <button class="back-link" id="review-back" onclick="goBackFromReview()">
+        <svg class="back-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        <span>Back</span>
+      </button>
       <div class="stepper-mount" data-step="ticket"></div>
       <h1 class="title">Review your Queue Ticket.</h1>
       <p class="subtitle">Confirm details before joining the queue.</p>
+      
       <div class="ticket-card">
         <div class="clinic">MEDIQ CLINIC</div>
         <div class="svc-row">
-          <div class="svc-name" id="ticket-service">Cardiology</div>
+          <div class="svc-name" id="ticket-service">General Medicine</div>
           <div class="qnum">07</div>
         </div>
         <div class="ticket-grid">
           <div><div class="k">Date</div><div class="v" id="ticket-date">—</div></div>
           <div><div class="k">Time Issued</div><div class="v" id="ticket-time">—</div></div>
           <div><div class="k">Patient Type</div><div class="v" id="ticket-type">Regular Patient</div></div>
-          <div><div class="k">Department</div><div class="v" id="ticket-dept">Cardiology</div></div>
+          <div><div class="k">Department</div><div class="v" id="ticket-dept">General Medicine</div></div>
         </div>
       </div>
       <button class="btn-primary" onclick="goTo('status')">Join Queue</button>
+      <div class="clinic-footer" id="footer-5"></div>
     </div>
-    <div class="clinic-footer" id="footer-5"></div>
   </section>
 
   <!-- ============ SCREEN 6: QUEUE STATUS ============ -->
   <section class="screen" id="screen-status" aria-label="Queue Status Screen">
     <div class="screen-body">
-      <div class="brand-header">
-        <svg class="heart-icon" viewBox="0 0 58 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M54.7493 20.0992C55.1358 18.8504 55.3325 17.5538 55.3333 16.2501C55.3475 13.369 54.4556 10.5521 52.7763 8.17431C51.097 5.79648 48.71 3.9705 45.933 2.9394C43.156 1.90829 40.1207 1.72097 37.231 2.40237C34.3414 3.08376 31.7345 4.60156 29.7573 6.75373C29.6176 6.89843 29.4487 7.01379 29.2611 7.09266C29.0735 7.17153 28.8712 7.21223 28.6667 7.21223C28.4622 7.21223 28.2598 7.17153 28.0722 7.09266C27.8846 7.01379 27.7157 6.89843 27.576 6.75373C25.5926 4.61545 22.9863 3.11031 20.1014 2.43709C17.2164 1.76388 14.1885 1.95426 11.4176 2.98309C8.64671 4.01193 6.26313 5.83082 4.58169 8.19953C2.90025 10.5682 2.00005 13.3753 2 16.2501C2 22.1917 6 26.5834 10 30.4584L24.688 44.2327C25.1921 44.7794 25.8105 45.216 26.5021 45.5134C27.1937 45.8107 27.9428 45.9621 28.6994 45.9575C29.4561 45.9528 30.2031 45.7923 30.8908 45.4864C31.5785 45.1806 32.1911 44.7365 32.688 44.1836L55.3333 44.2327" stroke="#6FD6D0" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span class="brand-title">Medi<span>Queue</span></span>
+      <button class="back-link" onclick="goTo('review')">
+        <svg class="back-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        <span>Back</span>
+      </button>
+      <h1 class="title">Queue Status</h1>
+      <p class="subtitle">Live tracking for your consultation ticket.</p>
+
+      <div class="merged-circles-container">
+        <div class="status-circle-item secondary-circle">
+          <div class="circle-ring ring-teal">
+            <span class="circle-val">01</span>
+          </div>
+          <div class="circle-label">NOW SERVING</div>
+          <div class="circle-sub">Counter 01</div>
+        </div>
+
+        <div class="status-circle-item primary-circle">
+          <div class="circle-ring ring-main">
+            <span class="circle-val">07</span>
+          </div>
+          <div class="circle-label">YOUR TICKET</div>
+          <div class="circle-sub text-teal">In Queue</div>
+        </div>
+
+        <div class="status-circle-item secondary-circle">
+          <div class="circle-ring ring-orange">
+            <span class="circle-val">06</span>
+          </div>
+          <div class="circle-label">AHEAD OF YOU</div>
+          <div class="circle-sub">~24m wait</div>
+        </div>
       </div>
 
-      <h1 class="title" style="margin-bottom:18px;">Queue Status</h1>
-      <div class="status-row">
-        <div class="now-serving-card"><div class="label">NOW SERVING</div><div class="val">01</div></div>
-        <div class="ahead-card"><div class="label">AHEAD OF YOU</div><div class="val">06</div><div class="sub">~24 min wait</div></div>
+      <div class="queue-ahead-card mt-20">
+        <div class="card-header-row">
+          <span class="card-title">Queue Ahead</span>
+          <span class="card-count-badge">6 Waiting</span>
+        </div>
+
+        <div id="status-queue-list"></div>
+
+        <button class="btn-start-cycle" onclick="goTo('doctors')">
+          <span>DOCTOR AVAILABILITY</span>
+        </button>
       </div>
-      <div class="queue-badge">
-        <div class="label">YOUR QUEUE NUMBER</div>
-        <div class="num">07</div>
-      </div>
-      <button class="btn-primary" onclick="goTo('doctors')">View Doctor Availability</button>
-      <div class="queue-head" style="margin-top:24px;"><h3>Queue Ahead</h3><span>6 waiting</span></div>
-      <div id="status-queue-list"></div>
+      <div class="clinic-footer" id="footer-6"></div>
     </div>
-    <div class="clinic-footer" id="footer-6"></div>
   </section>
 
   <!-- ============ SCREEN 7: DOCTOR AVAILABILITY ============ -->
   <section class="screen" id="screen-doctors" aria-label="Doctor Availability Screen">
     <div class="screen-body">
-      <div class="brand-header">
-        <svg class="heart-icon" viewBox="0 0 58 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M54.7493 20.0992C55.1358 18.8504 55.3325 17.5538 55.3333 16.2501C55.3475 13.369 54.4556 10.5521 52.7763 8.17431C51.097 5.79648 48.71 3.9705 45.933 2.9394C43.156 1.90829 40.1207 1.72097 37.231 2.40237C34.3414 3.08376 31.7345 4.60156 29.7573 6.75373C29.6176 6.89843 29.4487 7.01379 29.2611 7.09266C29.0735 7.17153 28.8712 7.21223 28.6667 7.21223C28.4622 7.21223 28.2598 7.17153 28.0722 7.09266C27.8846 7.01379 27.7157 6.89843 27.576 6.75373C25.5926 4.61545 22.9863 3.11031 20.1014 2.43709C17.2164 1.76388 14.1885 1.95426 11.4176 2.98309C8.64671 4.01193 6.26313 5.83082 4.58169 8.19953C2.90025 10.5682 2.00005 13.3753 2 16.2501C2 22.1917 6 26.5834 10 30.4584L24.688 44.2327C25.1921 44.7794 25.8105 45.216 26.5021 45.5134C27.1937 45.8107 27.9428 45.9621 28.6994 45.9575C29.4561 45.9528 30.2031 45.7923 30.8908 45.4864C31.5785 45.1806 32.1911 44.7365 32.688 44.1836L55.3333 44.2327" stroke="#6FD6D0" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span class="brand-title">Medi<span>Queue</span></span>
-      </div>
-
-      <button class="back-link" onclick="goTo('status')">‹ Back</button>
+      <button class="back-link" onclick="goTo('status')">
+        <svg class="back-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        <span>Back</span>
+      </button>
       <h1 class="title">Doctor on Duty</h1>
       <p class="subtitle">Real-time availability as of today.</p>
       <div class="doctor-grid" id="doctor-grid"></div>
+      <div class="clinic-footer" id="footer-7"></div>
     </div>
-    <div class="clinic-footer" id="footer-7"></div>
   </section>
 
 </main>
